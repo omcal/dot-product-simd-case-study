@@ -1,0 +1,88 @@
+In archive build-avx2-gcc/libdot_product_optimized.a:
+
+dot_product_optimized.cpp.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_Z30dot_product_compiler_optimizedPKfS0_m>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	48 89 d1             	mov    %rdx,%rcx
+   7:	48 85 d2             	test   %rdx,%rdx
+   a:	0f 84 18 01 00 00    	je     128 <_Z30dot_product_compiler_optimizedPKfS0_m+0x128>
+  10:	48 8d 42 ff          	lea    -0x1(%rdx),%rax
+  14:	48 83 f8 06          	cmp    $0x6,%rax
+  18:	0f 86 0f 01 00 00    	jbe    12d <_Z30dot_product_compiler_optimizedPKfS0_m+0x12d>
+  1e:	48 c1 ea 03          	shr    $0x3,%rdx
+  22:	31 c0                	xor    %eax,%eax
+  24:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+  28:	48 c1 e2 05          	shl    $0x5,%rdx
+  2c:	0f 1f 40 00          	nopl   0x0(%rax)
+  30:	c5 fc 10 0c 06       	vmovups (%rsi,%rax,1),%ymm1
+  35:	c5 f4 59 0c 07       	vmulps (%rdi,%rax,1),%ymm1,%ymm1
+  3a:	48 83 c0 20          	add    $0x20,%rax
+  3e:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  42:	c5 f0 c6 d9 55       	vshufps $0x55,%xmm1,%xmm1,%xmm3
+  47:	c5 f0 c6 d1 ff       	vshufps $0xff,%xmm1,%xmm1,%xmm2
+  4c:	c5 fa 58 c3          	vaddss %xmm3,%xmm0,%xmm0
+  50:	c5 f0 15 d9          	vunpckhps %xmm1,%xmm1,%xmm3
+  54:	c4 e3 7d 19 c9 01    	vextractf128 $0x1,%ymm1,%xmm1
+  5a:	c5 fa 58 c3          	vaddss %xmm3,%xmm0,%xmm0
+  5e:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+  62:	c5 f0 c6 d1 55       	vshufps $0x55,%xmm1,%xmm1,%xmm2
+  67:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  6b:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+  6f:	c5 f0 15 d1          	vunpckhps %xmm1,%xmm1,%xmm2
+  73:	c5 f0 c6 c9 ff       	vshufps $0xff,%xmm1,%xmm1,%xmm1
+  78:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+  7c:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  80:	48 39 c2             	cmp    %rax,%rdx
+  83:	75 ab                	jne    30 <_Z30dot_product_compiler_optimizedPKfS0_m+0x30>
+  85:	f6 c1 07             	test   $0x7,%cl
+  88:	0f 84 92 00 00 00    	je     120 <_Z30dot_product_compiler_optimizedPKfS0_m+0x120>
+  8e:	48 89 c8             	mov    %rcx,%rax
+  91:	48 83 e0 f8          	and    $0xfffffffffffffff8,%rax
+  95:	c5 f8 77             	vzeroupper
+  98:	48 89 ca             	mov    %rcx,%rdx
+  9b:	48 29 c2             	sub    %rax,%rdx
+  9e:	4c 8d 42 ff          	lea    -0x1(%rdx),%r8
+  a2:	49 83 f8 02          	cmp    $0x2,%r8
+  a6:	76 34                	jbe    dc <_Z30dot_product_compiler_optimizedPKfS0_m+0xdc>
+  a8:	c5 f8 10 0c 86       	vmovups (%rsi,%rax,4),%xmm1
+  ad:	c5 f0 59 0c 87       	vmulps (%rdi,%rax,4),%xmm1,%xmm1
+  b2:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  b6:	c5 f0 c6 d1 55       	vshufps $0x55,%xmm1,%xmm1,%xmm2
+  bb:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+  bf:	c5 f0 15 d1          	vunpckhps %xmm1,%xmm1,%xmm2
+  c3:	c5 f0 c6 c9 ff       	vshufps $0xff,%xmm1,%xmm1,%xmm1
+  c8:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+  cc:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  d0:	f6 c2 03             	test   $0x3,%dl
+  d3:	74 4e                	je     123 <_Z30dot_product_compiler_optimizedPKfS0_m+0x123>
+  d5:	48 83 e2 fc          	and    $0xfffffffffffffffc,%rdx
+  d9:	48 01 d0             	add    %rdx,%rax
+  dc:	c5 fa 10 0c 87       	vmovss (%rdi,%rax,4),%xmm1
+  e1:	c5 f2 59 0c 86       	vmulss (%rsi,%rax,4),%xmm1,%xmm1
+  e6:	48 8d 50 01          	lea    0x1(%rax),%rdx
+  ea:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  ee:	48 39 ca             	cmp    %rcx,%rdx
+  f1:	73 30                	jae    123 <_Z30dot_product_compiler_optimizedPKfS0_m+0x123>
+  f3:	c5 fa 10 4c 86 04    	vmovss 0x4(%rsi,%rax,4),%xmm1
+  f9:	c5 f2 59 4c 87 04    	vmulss 0x4(%rdi,%rax,4),%xmm1,%xmm1
+  ff:	48 8d 50 02          	lea    0x2(%rax),%rdx
+ 103:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 107:	48 39 ca             	cmp    %rcx,%rdx
+ 10a:	73 17                	jae    123 <_Z30dot_product_compiler_optimizedPKfS0_m+0x123>
+ 10c:	c5 fa 10 4c 87 08    	vmovss 0x8(%rdi,%rax,4),%xmm1
+ 112:	c5 f2 59 4c 86 08    	vmulss 0x8(%rsi,%rax,4),%xmm1,%xmm1
+ 118:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 11c:	c3                   	ret
+ 11d:	0f 1f 00             	nopl   (%rax)
+ 120:	c5 f8 77             	vzeroupper
+ 123:	c3                   	ret
+ 124:	0f 1f 40 00          	nopl   0x0(%rax)
+ 128:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 12c:	c3                   	ret
+ 12d:	31 c0                	xor    %eax,%eax
+ 12f:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 133:	e9 60 ff ff ff       	jmp    98 <_Z30dot_product_compiler_optimizedPKfS0_m+0x98>

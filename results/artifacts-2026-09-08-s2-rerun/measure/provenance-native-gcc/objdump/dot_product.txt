@@ -1,0 +1,28 @@
+In archive build-native-gcc/libdot_product.a:
+
+dot_product.cpp.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_Z18dot_product_scalarPKfS0_m>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	48 85 d2             	test   %rdx,%rdx
+   7:	74 37                	je     40 <_Z18dot_product_scalarPKfS0_m+0x40>
+   9:	31 c0                	xor    %eax,%eax
+   b:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+   f:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  15:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  1c:	00 00 00 00 
+  20:	c5 fa 10 04 87       	vmovss (%rdi,%rax,4),%xmm0
+  25:	c5 fa 59 04 86       	vmulss (%rsi,%rax,4),%xmm0,%xmm0
+  2a:	48 ff c0             	inc    %rax
+  2d:	c5 f2 58 c8          	vaddss %xmm0,%xmm1,%xmm1
+  31:	48 39 c2             	cmp    %rax,%rdx
+  34:	75 ea                	jne    20 <_Z18dot_product_scalarPKfS0_m+0x20>
+  36:	c5 f8 28 c1          	vmovaps %xmm1,%xmm0
+  3a:	c3                   	ret
+  3b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  40:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+  44:	c5 f8 28 c1          	vmovaps %xmm1,%xmm0
+  48:	c3                   	ret

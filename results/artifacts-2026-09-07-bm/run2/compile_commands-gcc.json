@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/build",
+  "command": "/usr/bin/g++-15  -I/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/include -O3 -DNDEBUG -Wall -Wextra -Wpedantic -fno-tree-vectorize -ffp-contract=off -march=native -o CMakeFiles/dot_product.dir/src/dot_product.cpp.o -c /home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/dot_product.cpp",
+  "file": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/dot_product.cpp",
+  "output": "CMakeFiles/dot_product.dir/src/dot_product.cpp.o"
+},
+{
+  "directory": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/build",
+  "command": "/usr/bin/g++-15  -I/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/include -O3 -DNDEBUG -Wall -Wextra -Wpedantic -ffp-contract=off -fopt-info-vec-all -march=native -o CMakeFiles/dot_product_optimized.dir/src/dot_product_optimized.cpp.o -c /home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/dot_product_optimized.cpp",
+  "file": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/dot_product_optimized.cpp",
+  "output": "CMakeFiles/dot_product_optimized.dir/src/dot_product_optimized.cpp.o"
+},
+{
+  "directory": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/build",
+  "command": "/usr/bin/g++-15  -I/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/include -O3 -DNDEBUG -Wall -Wextra -Wpedantic -fassociative-math -fno-signed-zeros -fno-trapping-math -ffp-contract=off -march=native -o CMakeFiles/dot_product_reassociated.dir/src/dot_product_reassociated.cpp.o -c /home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/dot_product_reassociated.cpp",
+  "file": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/dot_product_reassociated.cpp",
+  "output": "CMakeFiles/dot_product_reassociated.dir/src/dot_product_reassociated.cpp.o"
+},
+{
+  "directory": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/build",
+  "command": "/usr/bin/g++-15   -O3 -DNDEBUG -Wall -Wextra -Wpedantic -mavx2 -mno-fma -ffp-contract=off -o CMakeFiles/dot_product_avx2.dir/src/dot_product_avx2.cpp.o -c /home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/dot_product_avx2.cpp",
+  "file": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/dot_product_avx2.cpp",
+  "output": "CMakeFiles/dot_product_avx2.dir/src/dot_product_avx2.cpp.o"
+},
+{
+  "directory": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/build",
+  "command": "/usr/bin/g++-15 -DDOT_PRODUCT_HAS_AVX2=1 -I/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/include -O3 -DNDEBUG -Wall -Wextra -Wpedantic -o CMakeFiles/dot_product_dispatch.dir/src/dot_product_dispatch.cpp.o -c /home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/dot_product_dispatch.cpp",
+  "file": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/dot_product_dispatch.cpp",
+  "output": "CMakeFiles/dot_product_dispatch.dir/src/dot_product_dispatch.cpp.o"
+},
+{
+  "directory": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/build",
+  "command": "/usr/bin/g++-15 -DBENCH_ARCH=\\\"x86_64\\\" -DBENCH_BUILD_TYPE=\\\"Release\\\" -I/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/include -O3 -DNDEBUG -Wall -Wextra -Wpedantic -o CMakeFiles/dot_product_benchmark.dir/src/benchmark.cpp.o -c /home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/benchmark.cpp",
+  "file": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/src/benchmark.cpp",
+  "output": "CMakeFiles/dot_product_benchmark.dir/src/benchmark.cpp.o"
+},
+{
+  "directory": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/build",
+  "command": "/usr/bin/g++-15  -I/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/include -O3 -DNDEBUG -o CMakeFiles/dot_product_tests.dir/tests/dot_product_tests.cpp.o -c /home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/tests/dot_product_tests.cpp",
+  "file": "/home/ubuntu/actions-runner/_work/GPU-Works/GPU-Works/tests/dot_product_tests.cpp",
+  "output": "CMakeFiles/dot_product_tests.dir/tests/dot_product_tests.cpp.o"
+}
+]

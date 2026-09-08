@@ -1,0 +1,110 @@
+In archive build-native-clang/libdot_product_avx2.a:
+
+dot_product_avx2.cpp.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_Z16dot_product_avx2PKfS0_m>:
+   0:	48 83 fa 20          	cmp    $0x20,%rdx
+   4:	0f 82 71 01 00 00    	jb     17b <_Z16dot_product_avx2PKfS0_m+0x17b>
+   a:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+   e:	31 c0                	xor    %eax,%eax
+  10:	48 89 d1             	mov    %rdx,%rcx
+  13:	c5 e0 57 db          	vxorps %xmm3,%xmm3,%xmm3
+  17:	c5 e8 57 d2          	vxorps %xmm2,%xmm2,%xmm2
+  1b:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+  1f:	90                   	nop
+  20:	c5 fc 10 24 87       	vmovups (%rdi,%rax,4),%ymm4
+  25:	c5 fc 10 6c 87 20    	vmovups 0x20(%rdi,%rax,4),%ymm5
+  2b:	c5 fc 10 74 87 40    	vmovups 0x40(%rdi,%rax,4),%ymm6
+  31:	c5 fc 10 7c 87 60    	vmovups 0x60(%rdi,%rax,4),%ymm7
+  37:	c5 dc 59 24 86       	vmulps (%rsi,%rax,4),%ymm4,%ymm4
+  3c:	c5 f4 58 cc          	vaddps %ymm4,%ymm1,%ymm1
+  40:	c5 d4 59 64 86 20    	vmulps 0x20(%rsi,%rax,4),%ymm5,%ymm4
+  46:	c5 cc 59 6c 86 40    	vmulps 0x40(%rsi,%rax,4),%ymm6,%ymm5
+  4c:	c5 e4 58 dc          	vaddps %ymm4,%ymm3,%ymm3
+  50:	c5 ec 58 d5          	vaddps %ymm5,%ymm2,%ymm2
+  54:	c5 c4 59 64 86 60    	vmulps 0x60(%rsi,%rax,4),%ymm7,%ymm4
+  5a:	c5 fc 58 c4          	vaddps %ymm4,%ymm0,%ymm0
+  5e:	48 83 c0 20          	add    $0x20,%rax
+  62:	48 83 c1 e0          	add    $0xffffffffffffffe0,%rcx
+  66:	48 83 f9 1f          	cmp    $0x1f,%rcx
+  6a:	77 b4                	ja     20 <_Z16dot_product_avx2PKfS0_m+0x20>
+  6c:	48 89 d1             	mov    %rdx,%rcx
+  6f:	48 29 c1             	sub    %rax,%rcx
+  72:	48 83 f9 08          	cmp    $0x8,%rcx
+  76:	72 24                	jb     9c <_Z16dot_product_avx2PKfS0_m+0x9c>
+  78:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+  7f:	00 
+  80:	c5 fc 10 24 87       	vmovups (%rdi,%rax,4),%ymm4
+  85:	c5 dc 59 24 86       	vmulps (%rsi,%rax,4),%ymm4,%ymm4
+  8a:	c5 f4 58 cc          	vaddps %ymm4,%ymm1,%ymm1
+  8e:	48 83 c0 08          	add    $0x8,%rax
+  92:	48 83 c1 f8          	add    $0xfffffffffffffff8,%rcx
+  96:	48 83 f9 07          	cmp    $0x7,%rcx
+  9a:	77 e4                	ja     80 <_Z16dot_product_avx2PKfS0_m+0x80>
+  9c:	c5 e4 58 c9          	vaddps %ymm1,%ymm3,%ymm1
+  a0:	c5 fc 58 c2          	vaddps %ymm2,%ymm0,%ymm0
+  a4:	c5 fc 58 c1          	vaddps %ymm1,%ymm0,%ymm0
+  a8:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+  ac:	c5 fa 58 c9          	vaddss %xmm1,%xmm0,%xmm1
+  b0:	c5 fa 16 d0          	vmovshdup %xmm0,%xmm2
+  b4:	c5 f2 58 ca          	vaddss %xmm2,%xmm1,%xmm1
+  b8:	c5 f9 c6 d0 01       	vshufpd $0x1,%xmm0,%xmm0,%xmm2
+  bd:	c5 f2 58 ca          	vaddss %xmm2,%xmm1,%xmm1
+  c1:	c5 f8 c6 d0 ff       	vshufps $0xff,%xmm0,%xmm0,%xmm2
+  c6:	c5 f2 58 ca          	vaddss %xmm2,%xmm1,%xmm1
+  ca:	c4 e3 7d 19 c0 01    	vextractf128 $0x1,%ymm0,%xmm0
+  d0:	c5 f2 58 c8          	vaddss %xmm0,%xmm1,%xmm1
+  d4:	c5 fa 16 d0          	vmovshdup %xmm0,%xmm2
+  d8:	c5 f2 58 ca          	vaddss %xmm2,%xmm1,%xmm1
+  dc:	c5 f9 c6 d0 01       	vshufpd $0x1,%xmm0,%xmm0,%xmm2
+  e1:	c5 f2 58 ca          	vaddss %xmm2,%xmm1,%xmm1
+  e5:	c5 f8 c6 c0 ff       	vshufps $0xff,%xmm0,%xmm0,%xmm0
+  ea:	c5 f2 58 c0          	vaddss %xmm0,%xmm1,%xmm0
+  ee:	48 89 c1             	mov    %rax,%rcx
+  f1:	48 29 d1             	sub    %rdx,%rcx
+  f4:	0f 83 7d 00 00 00    	jae    177 <_Z16dot_product_avx2PKfS0_m+0x177>
+  fa:	41 89 d0             	mov    %edx,%r8d
+  fd:	41 29 c0             	sub    %eax,%r8d
+ 100:	41 83 e0 03          	and    $0x3,%r8d
+ 104:	74 20                	je     126 <_Z16dot_product_avx2PKfS0_m+0x126>
+ 106:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 10d:	00 00 00 
+ 110:	c5 fa 10 0c 87       	vmovss (%rdi,%rax,4),%xmm1
+ 115:	c5 f2 59 0c 86       	vmulss (%rsi,%rax,4),%xmm1,%xmm1
+ 11a:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 11e:	48 ff c0             	inc    %rax
+ 121:	49 ff c8             	dec    %r8
+ 124:	75 ea                	jne    110 <_Z16dot_product_avx2PKfS0_m+0x110>
+ 126:	48 83 f9 fc          	cmp    $0xfffffffffffffffc,%rcx
+ 12a:	77 4b                	ja     177 <_Z16dot_product_avx2PKfS0_m+0x177>
+ 12c:	0f 1f 40 00          	nopl   0x0(%rax)
+ 130:	c5 fa 10 0c 87       	vmovss (%rdi,%rax,4),%xmm1
+ 135:	c5 fa 10 54 87 04    	vmovss 0x4(%rdi,%rax,4),%xmm2
+ 13b:	c5 f2 59 0c 86       	vmulss (%rsi,%rax,4),%xmm1,%xmm1
+ 140:	c5 ea 59 54 86 04    	vmulss 0x4(%rsi,%rax,4),%xmm2,%xmm2
+ 146:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 14a:	c5 fa 10 4c 87 08    	vmovss 0x8(%rdi,%rax,4),%xmm1
+ 150:	c5 f2 59 4c 86 08    	vmulss 0x8(%rsi,%rax,4),%xmm1,%xmm1
+ 156:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+ 15a:	c5 fa 10 54 87 0c    	vmovss 0xc(%rdi,%rax,4),%xmm2
+ 160:	c5 ea 59 54 86 0c    	vmulss 0xc(%rsi,%rax,4),%xmm2,%xmm2
+ 166:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 16a:	c5 fa 58 c2          	vaddss %xmm2,%xmm0,%xmm0
+ 16e:	48 83 c0 04          	add    $0x4,%rax
+ 172:	48 39 c2             	cmp    %rax,%rdx
+ 175:	75 b9                	jne    130 <_Z16dot_product_avx2PKfS0_m+0x130>
+ 177:	c5 f8 77             	vzeroupper
+ 17a:	c3                   	ret
+ 17b:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 17f:	31 c0                	xor    %eax,%eax
+ 181:	c5 e8 57 d2          	vxorps %xmm2,%xmm2,%xmm2
+ 185:	c5 e0 57 db          	vxorps %xmm3,%xmm3,%xmm3
+ 189:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+ 18d:	48 89 d1             	mov    %rdx,%rcx
+ 190:	48 29 c1             	sub    %rax,%rcx
+ 193:	48 83 f9 08          	cmp    $0x8,%rcx
+ 197:	0f 83 e3 fe ff ff    	jae    80 <_Z16dot_product_avx2PKfS0_m+0x80>
+ 19d:	e9 fa fe ff ff       	jmp    9c <_Z16dot_product_avx2PKfS0_m+0x9c>

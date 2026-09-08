@@ -1,0 +1,4 @@
+scalar
+compiler_optimized
+compiler_reassociated
+manual_avx2

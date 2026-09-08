@@ -1,0 +1,29 @@
+date: 2026-09-07T22:14:18Z
+workflow: measure-x86
+commit: 0bfe8b0cbb089a25e2d7d2195f59751381a39337
+run_id: 34165960121
+runner: bm-x86-scaleway
+target: bare-metal
+Linux em-blissful-hellman 6.8.0-88-generic #89-Ubuntu SMP PREEMPT_DYNAMIC Sat Oct 11 01:02:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+none
+Architecture:                         x86_64
+CPU(s):                               16
+Model name:                           AMD EPYC 8024P 8-Core Processor
+CPU(s) scaling MHz:                   100%
+avx
+avx2
+avx512f
+fma
+sse4_2
+g++-15 (Ubuntu 15.2.0-14ubuntu1~24~ppa1) 15.2.0
+Ubuntu clang version 21.1.8 (++20251221032922+2078da43e25a-1~exp1~20251221153059.70)
+cmake version 3.28.3
+analyzing CPU 3:
+  current policy: frequency should be within 1.50 GHz and 2.40 GHz.
+                  The governor "performance" may decide which speed to use
+                  within this range.
+0
+analyzing CPU 4:
+  current policy: frequency should be within 1.50 GHz and 2.40 GHz.
+                  The governor "performance" may decide which speed to use
+0

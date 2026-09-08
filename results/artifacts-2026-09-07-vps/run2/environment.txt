@@ -1,0 +1,14 @@
+date: 2026-09-07T01:32:31Z
+runner: vps-x86-measurement
+Linux vps-9ff47405 7.0.0-28-generic #28-Ubuntu SMP PREEMPT_DYNAMIC Sun Jun 21 01:01:36 UTC 2026 x86_64 GNU/Linux
+kvm
+Architecture:                            x86_64
+CPU(s):                                  4
+Model name:                              Intel Core Processor (Haswell, no TSX)
+avx
+avx2
+fma
+sse4_2
+g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+Ubuntu clang version 21.1.8 (6ubuntu1)
+cmake version 4.2.3

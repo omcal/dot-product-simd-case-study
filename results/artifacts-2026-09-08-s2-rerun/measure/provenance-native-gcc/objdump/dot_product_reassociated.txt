@@ -1,0 +1,109 @@
+In archive build-native-gcc/libdot_product_reassociated.a:
+
+dot_product_reassociated.cpp.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_Z33dot_product_compiler_reassociatedPKfS0_m>:
+   0:	f3 0f 1e fa          	endbr64
+   4:	48 89 d1             	mov    %rdx,%rcx
+   7:	48 85 d2             	test   %rdx,%rdx
+   a:	0f 84 70 01 00 00    	je     180 <_Z33dot_product_compiler_reassociatedPKfS0_m+0x180>
+  10:	48 8d 42 ff          	lea    -0x1(%rdx),%rax
+  14:	48 83 f8 0e          	cmp    $0xe,%rax
+  18:	0f 86 67 01 00 00    	jbe    185 <_Z33dot_product_compiler_reassociatedPKfS0_m+0x185>
+  1e:	48 c1 ea 04          	shr    $0x4,%rdx
+  22:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+  26:	48 c1 e2 06          	shl    $0x6,%rdx
+  2a:	31 c0                	xor    %eax,%eax
+  2c:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  33:	00 00 
+  35:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  3c:	00 00 00 00 
+  40:	62 f1 7c 48 10 04 06 	vmovups (%rsi,%rax,1),%zmm0
+  47:	62 f1 7c 48 59 04 07 	vmulps (%rdi,%rax,1),%zmm0,%zmm0
+  4e:	48 83 c0 40          	add    $0x40,%rax
+  52:	62 f1 74 48 58 c8    	vaddps %zmm0,%zmm1,%zmm1
+  58:	48 39 d0             	cmp    %rdx,%rax
+  5b:	75 e3                	jne    40 <_Z33dot_product_compiler_reassociatedPKfS0_m+0x40>
+  5d:	62 f3 7d 48 1b c8 01 	vextractf32x8 $0x1,%zmm1,%ymm0
+  64:	c5 fc 58 c9          	vaddps %ymm1,%ymm0,%ymm1
+  68:	62 f3 7d 28 19 c8 01 	vextractf32x4 $0x1,%ymm1,%xmm0
+  6f:	c5 f8 58 c1          	vaddps %xmm1,%xmm0,%xmm0
+  73:	c5 f8 12 d0          	vmovhlps %xmm0,%xmm0,%xmm2
+  77:	c5 e8 58 d0          	vaddps %xmm0,%xmm2,%xmm2
+  7b:	c5 e8 c6 c2 55       	vshufps $0x55,%xmm2,%xmm2,%xmm0
+  80:	c5 f8 58 c2          	vaddps %xmm2,%xmm0,%xmm0
+  84:	f6 c1 0f             	test   $0xf,%cl
+  87:	0f 84 e3 00 00 00    	je     170 <_Z33dot_product_compiler_reassociatedPKfS0_m+0x170>
+  8d:	48 89 ca             	mov    %rcx,%rdx
+  90:	48 83 e2 f0          	and    $0xfffffffffffffff0,%rdx
+  94:	48 89 c8             	mov    %rcx,%rax
+  97:	48 29 d0             	sub    %rdx,%rax
+  9a:	4c 8d 40 ff          	lea    -0x1(%rax),%r8
+  9e:	49 83 f8 06          	cmp    $0x6,%r8
+  a2:	0f 86 ec 00 00 00    	jbe    194 <_Z33dot_product_compiler_reassociatedPKfS0_m+0x194>
+  a8:	c5 fc 10 04 97       	vmovups (%rdi,%rdx,4),%ymm0
+  ad:	c5 fc 59 04 96       	vmulps (%rsi,%rdx,4),%ymm0,%ymm0
+  b2:	c5 fc 58 c1          	vaddps %ymm1,%ymm0,%ymm0
+  b6:	62 f3 7d 28 19 c1 01 	vextractf32x4 $0x1,%ymm0,%xmm1
+  bd:	c5 f0 58 c8          	vaddps %xmm0,%xmm1,%xmm1
+  c1:	c5 f0 12 d1          	vmovhlps %xmm1,%xmm1,%xmm2
+  c5:	c5 e8 58 d1          	vaddps %xmm1,%xmm2,%xmm2
+  c9:	c5 e8 c6 c2 55       	vshufps $0x55,%xmm2,%xmm2,%xmm0
+  ce:	c5 f8 58 c2          	vaddps %xmm2,%xmm0,%xmm0
+  d2:	a8 07                	test   $0x7,%al
+  d4:	0f 84 96 00 00 00    	je     170 <_Z33dot_product_compiler_reassociatedPKfS0_m+0x170>
+  da:	49 89 c1             	mov    %rax,%r9
+  dd:	49 83 e1 f8          	and    $0xfffffffffffffff8,%r9
+  e1:	4e 8d 04 0a          	lea    (%rdx,%r9,1),%r8
+  e5:	4c 29 c8             	sub    %r9,%rax
+  e8:	4c 8d 50 ff          	lea    -0x1(%rax),%r10
+  ec:	49 83 fa 02          	cmp    $0x2,%r10
+  f0:	76 2d                	jbe    11f <_Z33dot_product_compiler_reassociatedPKfS0_m+0x11f>
+  f2:	4c 01 ca             	add    %r9,%rdx
+  f5:	c5 f8 10 04 97       	vmovups (%rdi,%rdx,4),%xmm0
+  fa:	c5 f8 59 04 96       	vmulps (%rsi,%rdx,4),%xmm0,%xmm0
+  ff:	c5 f8 58 c1          	vaddps %xmm1,%xmm0,%xmm0
+ 103:	c5 f8 12 c8          	vmovhlps %xmm0,%xmm0,%xmm1
+ 107:	c5 f0 58 c8          	vaddps %xmm0,%xmm1,%xmm1
+ 10b:	c5 f0 c6 c1 55       	vshufps $0x55,%xmm1,%xmm1,%xmm0
+ 110:	c5 f8 58 c1          	vaddps %xmm1,%xmm0,%xmm0
+ 114:	a8 03                	test   $0x3,%al
+ 116:	74 58                	je     170 <_Z33dot_product_compiler_reassociatedPKfS0_m+0x170>
+ 118:	48 83 e0 fc          	and    $0xfffffffffffffffc,%rax
+ 11c:	49 01 c0             	add    %rax,%r8
+ 11f:	c4 a1 7a 10 0c 87    	vmovss (%rdi,%r8,4),%xmm1
+ 125:	c4 a1 72 59 0c 86    	vmulss (%rsi,%r8,4),%xmm1,%xmm1
+ 12b:	49 8d 40 01          	lea    0x1(%r8),%rax
+ 12f:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 133:	48 39 c8             	cmp    %rcx,%rax
+ 136:	73 38                	jae    170 <_Z33dot_product_compiler_reassociatedPKfS0_m+0x170>
+ 138:	c4 a1 7a 10 4c 86 04 	vmovss 0x4(%rsi,%r8,4),%xmm1
+ 13f:	c4 a1 72 59 4c 87 04 	vmulss 0x4(%rdi,%r8,4),%xmm1,%xmm1
+ 146:	49 8d 40 02          	lea    0x2(%r8),%rax
+ 14a:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 14e:	48 39 c8             	cmp    %rcx,%rax
+ 151:	73 1d                	jae    170 <_Z33dot_product_compiler_reassociatedPKfS0_m+0x170>
+ 153:	c4 a1 7a 10 4c 87 08 	vmovss 0x8(%rdi,%r8,4),%xmm1
+ 15a:	c4 a1 72 59 4c 86 08 	vmulss 0x8(%rsi,%r8,4),%xmm1,%xmm1
+ 161:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+ 165:	c5 f8 77             	vzeroupper
+ 168:	c3                   	ret
+ 169:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 170:	c5 f8 77             	vzeroupper
+ 173:	c3                   	ret
+ 174:	90                   	nop
+ 175:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ 17c:	00 00 00 00 
+ 180:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 184:	c3                   	ret
+ 185:	c5 f0 57 c9          	vxorps %xmm1,%xmm1,%xmm1
+ 189:	31 d2                	xor    %edx,%edx
+ 18b:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 18f:	e9 00 ff ff ff       	jmp    94 <_Z33dot_product_compiler_reassociatedPKfS0_m+0x94>
+ 194:	49 89 d0             	mov    %rdx,%r8
+ 197:	45 31 c9             	xor    %r9d,%r9d
+ 19a:	c4 e3 79 21 c8 0e    	vinsertps $0xe,%xmm0,%xmm0,%xmm1
+ 1a0:	e9 40 ff ff ff       	jmp    e5 <_Z33dot_product_compiler_reassociatedPKfS0_m+0xe5>

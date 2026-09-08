@@ -1,0 +1,63 @@
+In archive build-native-clang/libdot_product.a:
+
+dot_product.cpp.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_Z18dot_product_scalarPKfS0_m>:
+   0:	48 85 d2             	test   %rdx,%rdx
+   3:	74 16                	je     1b <_Z18dot_product_scalarPKfS0_m+0x1b>
+   5:	89 d0                	mov    %edx,%eax
+   7:	83 e0 07             	and    $0x7,%eax
+   a:	48 83 fa 08          	cmp    $0x8,%rdx
+   e:	73 10                	jae    20 <_Z18dot_product_scalarPKfS0_m+0x20>
+  10:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+  14:	31 c9                	xor    %ecx,%ecx
+  16:	e9 a0 00 00 00       	jmp    bb <_Z18dot_product_scalarPKfS0_m+0xbb>
+  1b:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+  1f:	c3                   	ret
+  20:	48 83 e2 f8          	and    $0xfffffffffffffff8,%rdx
+  24:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+  28:	31 c9                	xor    %ecx,%ecx
+  2a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  30:	c5 fa 10 0c 8f       	vmovss (%rdi,%rcx,4),%xmm1
+  35:	c5 fa 10 54 8f 04    	vmovss 0x4(%rdi,%rcx,4),%xmm2
+  3b:	c5 f2 59 0c 8e       	vmulss (%rsi,%rcx,4),%xmm1,%xmm1
+  40:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  44:	c5 ea 59 4c 8e 04    	vmulss 0x4(%rsi,%rcx,4),%xmm2,%xmm1
+  4a:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  4e:	c5 fa 10 4c 8f 08    	vmovss 0x8(%rdi,%rcx,4),%xmm1
+  54:	c5 f2 59 4c 8e 08    	vmulss 0x8(%rsi,%rcx,4),%xmm1,%xmm1
+  5a:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  5e:	c5 fa 10 4c 8f 0c    	vmovss 0xc(%rdi,%rcx,4),%xmm1
+  64:	c5 f2 59 4c 8e 0c    	vmulss 0xc(%rsi,%rcx,4),%xmm1,%xmm1
+  6a:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  6e:	c5 fa 10 4c 8f 10    	vmovss 0x10(%rdi,%rcx,4),%xmm1
+  74:	c5 f2 59 4c 8e 10    	vmulss 0x10(%rsi,%rcx,4),%xmm1,%xmm1
+  7a:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  7e:	c5 fa 10 4c 8f 14    	vmovss 0x14(%rdi,%rcx,4),%xmm1
+  84:	c5 f2 59 4c 8e 14    	vmulss 0x14(%rsi,%rcx,4),%xmm1,%xmm1
+  8a:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  8e:	c5 fa 10 4c 8f 18    	vmovss 0x18(%rdi,%rcx,4),%xmm1
+  94:	c5 f2 59 4c 8e 18    	vmulss 0x18(%rsi,%rcx,4),%xmm1,%xmm1
+  9a:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  9e:	c5 fa 10 4c 8f 1c    	vmovss 0x1c(%rdi,%rcx,4),%xmm1
+  a4:	c5 f2 59 4c 8e 1c    	vmulss 0x1c(%rsi,%rcx,4),%xmm1,%xmm1
+  aa:	48 83 c1 08          	add    $0x8,%rcx
+  ae:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  b2:	48 39 ca             	cmp    %rcx,%rdx
+  b5:	0f 85 75 ff ff ff    	jne    30 <_Z18dot_product_scalarPKfS0_m+0x30>
+  bb:	48 85 c0             	test   %rax,%rax
+  be:	74 26                	je     e6 <_Z18dot_product_scalarPKfS0_m+0xe6>
+  c0:	48 8d 14 8e          	lea    (%rsi,%rcx,4),%rdx
+  c4:	48 8d 0c 8f          	lea    (%rdi,%rcx,4),%rcx
+  c8:	31 f6                	xor    %esi,%esi
+  ca:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  d0:	c5 fa 10 0c b1       	vmovss (%rcx,%rsi,4),%xmm1
+  d5:	c5 f2 59 0c b2       	vmulss (%rdx,%rsi,4),%xmm1,%xmm1
+  da:	48 ff c6             	inc    %rsi
+  dd:	c5 fa 58 c1          	vaddss %xmm1,%xmm0,%xmm0
+  e1:	48 39 f0             	cmp    %rsi,%rax
+  e4:	75 ea                	jne    d0 <_Z18dot_product_scalarPKfS0_m+0xd0>
+  e6:	c3                   	ret

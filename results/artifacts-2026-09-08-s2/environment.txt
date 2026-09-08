@@ -1,0 +1,10 @@
+2026-09-08T17:04:59Z
+em-amazing-liskov
+none
+CPU(s):                                  16
+Model name:                              AMD EPYC 8024P 8-Core Processor
+CPU(s) scaling MHz:                      78%
+CPU max MHz:                             3001.2500
+CPU min MHz:                             1500.0000
+boost=0
+governor=performance

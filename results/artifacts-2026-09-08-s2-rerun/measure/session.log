@@ -1,0 +1,410 @@
+VERSIONS
+g++-15 (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+Ubuntu clang version 21.1.8 (6ubuntu1)
+cmake version 4.2.3
+== config: native / gcc ==
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:6:31: optimized: loop vectorized using 64 byte vectors
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:6:31: optimized: loop vectorized using 32 byte vectors
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:6:31: optimized: loop vectorized using 16 byte vectors
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: vectorized 1 loops in function.
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Analysis failed with vector mode V16SF
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** The result for vector mode V64QI would be the same
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Re-trying analysis with vector mode V32QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Analysis failed with vector mode V32QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Re-trying analysis with vector mode V16QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Analysis failed with vector mode V16QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Re-trying analysis with vector mode V8QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Analysis failed with vector mode V8QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Re-trying analysis with vector mode V4QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Analysis failed with vector mode V4QI
+ok: scalar: empty input
+ok: scalar: single element
+ok: scalar: mixed signs
+ok: scalar: same input buffer
+ok: scalar: offset and prefix
+ok: scalar: cancellation
+ok: scalar: guaranteed unaligned vector loads
+ok: scalar n=1
+ok: scalar n=7
+ok: scalar n=8
+ok: scalar n=9
+ok: scalar n=31
+ok: scalar n=256
+ok: scalar n=1024
+ok: scalar n=4097
+ok: scalar: all tails n=0..65
+ok: scalar: offset tails n=0..65
+ok: scalar: well-conditioned large n (no cancellation)
+ok: compiler_optimized: empty input
+ok: compiler_optimized: single element
+ok: compiler_optimized: mixed signs
+ok: compiler_optimized: same input buffer
+ok: compiler_optimized: offset and prefix
+ok: compiler_optimized: cancellation
+ok: compiler_optimized: guaranteed unaligned vector loads
+ok: compiler_optimized n=1
+ok: compiler_optimized n=7
+ok: compiler_optimized n=8
+ok: compiler_optimized n=9
+ok: compiler_optimized n=31
+ok: compiler_optimized n=256
+ok: compiler_optimized n=1024
+ok: compiler_optimized n=4097
+ok: compiler_optimized: all tails n=0..65
+ok: compiler_optimized: offset tails n=0..65
+ok: compiler_optimized: well-conditioned large n (no cancellation)
+ok: compiler_reassociated: empty input
+ok: compiler_reassociated: single element
+ok: compiler_reassociated: mixed signs
+ok: compiler_reassociated: same input buffer
+ok: compiler_reassociated: offset and prefix
+ok: compiler_reassociated: cancellation
+ok: compiler_reassociated: guaranteed unaligned vector loads
+ok: compiler_reassociated n=1
+ok: compiler_reassociated n=7
+ok: compiler_reassociated n=8
+ok: compiler_reassociated n=9
+ok: compiler_reassociated n=31
+ok: compiler_reassociated n=256
+ok: compiler_reassociated n=1024
+ok: compiler_reassociated n=4097
+ok: compiler_reassociated: all tails n=0..65
+ok: compiler_reassociated: offset tails n=0..65
+ok: compiler_reassociated: well-conditioned large n (no cancellation)
+ok: manual_avx2: empty input
+ok: manual_avx2: single element
+ok: manual_avx2: mixed signs
+ok: manual_avx2: same input buffer
+ok: manual_avx2: offset and prefix
+ok: manual_avx2: cancellation
+ok: manual_avx2: guaranteed unaligned vector loads
+ok: manual_avx2 n=1
+ok: manual_avx2 n=7
+ok: manual_avx2 n=8
+ok: manual_avx2 n=9
+ok: manual_avx2 n=31
+ok: manual_avx2 n=256
+ok: manual_avx2 n=1024
+ok: manual_avx2 n=4097
+ok: manual_avx2: all tails n=0..65
+ok: manual_avx2: offset tails n=0..65
+ok: manual_avx2: well-conditioned large n (no cancellation)
+72 checks passed.
+Test project /home/ubuntu/gpu-works-s2r/build-native-gcc
+    Start 1: dot_product_correctness
+1/4 Test #1: dot_product_correctness ..........   Passed    0.04 sec
+    Start 2: correctness_without_avx2
+2/4 Test #2: correctness_without_avx2 .........   Passed    0.03 sec
+    Start 3: benchmark_smoke
+3/4 Test #3: benchmark_smoke ..................   Passed    0.19 sec
+    Start 4: benchmark_without_avx2
+4/4 Test #4: benchmark_without_avx2 ...........   Passed    0.15 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.42 sec
+== config: native / clang ==
+clang++-21: warning: overriding '-ffast-math' option with '-ffp-contract=off' [-Woverriding-option]
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:7:13: remark: loop not vectorized: cannot prove it is safe to reorder floating-point operations; allow reordering by specifying '#pragma clang loop vectorize(enable)' before the loop or by providing the compiler option '-ffast-math' [-Rpass-analysis=loop-vectorize]
+    7 |         sum += a[i] * b[i];
+      |             ^
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:6:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+    6 |     for (std::size_t i = 0; i < n; ++i) {
+      |     ^
+ok: scalar: empty input
+ok: scalar: single element
+ok: scalar: mixed signs
+ok: scalar: same input buffer
+ok: scalar: offset and prefix
+ok: scalar: cancellation
+ok: scalar: guaranteed unaligned vector loads
+ok: scalar n=1
+ok: scalar n=7
+ok: scalar n=8
+ok: scalar n=9
+ok: scalar n=31
+ok: scalar n=256
+ok: scalar n=1024
+ok: scalar n=4097
+ok: scalar: all tails n=0..65
+ok: scalar: offset tails n=0..65
+ok: scalar: well-conditioned large n (no cancellation)
+ok: compiler_optimized: empty input
+ok: compiler_optimized: single element
+ok: compiler_optimized: mixed signs
+ok: compiler_optimized: same input buffer
+ok: compiler_optimized: offset and prefix
+ok: compiler_optimized: cancellation
+ok: compiler_optimized: guaranteed unaligned vector loads
+ok: compiler_optimized n=1
+ok: compiler_optimized n=7
+ok: compiler_optimized n=8
+ok: compiler_optimized n=9
+ok: compiler_optimized n=31
+ok: compiler_optimized n=256
+ok: compiler_optimized n=1024
+ok: compiler_optimized n=4097
+ok: compiler_optimized: all tails n=0..65
+ok: compiler_optimized: offset tails n=0..65
+ok: compiler_optimized: well-conditioned large n (no cancellation)
+ok: compiler_reassociated: empty input
+ok: compiler_reassociated: single element
+ok: compiler_reassociated: mixed signs
+ok: compiler_reassociated: same input buffer
+ok: compiler_reassociated: offset and prefix
+ok: compiler_reassociated: cancellation
+ok: compiler_reassociated: guaranteed unaligned vector loads
+ok: compiler_reassociated n=1
+ok: compiler_reassociated n=7
+ok: compiler_reassociated n=8
+ok: compiler_reassociated n=9
+ok: compiler_reassociated n=31
+ok: compiler_reassociated n=256
+ok: compiler_reassociated n=1024
+ok: compiler_reassociated n=4097
+ok: compiler_reassociated: all tails n=0..65
+ok: compiler_reassociated: offset tails n=0..65
+ok: compiler_reassociated: well-conditioned large n (no cancellation)
+ok: manual_avx2: empty input
+ok: manual_avx2: single element
+ok: manual_avx2: mixed signs
+ok: manual_avx2: same input buffer
+ok: manual_avx2: offset and prefix
+ok: manual_avx2: cancellation
+ok: manual_avx2: guaranteed unaligned vector loads
+ok: manual_avx2 n=1
+ok: manual_avx2 n=7
+ok: manual_avx2 n=8
+ok: manual_avx2 n=9
+ok: manual_avx2 n=31
+ok: manual_avx2 n=256
+ok: manual_avx2 n=1024
+ok: manual_avx2 n=4097
+ok: manual_avx2: all tails n=0..65
+ok: manual_avx2: offset tails n=0..65
+ok: manual_avx2: well-conditioned large n (no cancellation)
+72 checks passed.
+Test project /home/ubuntu/gpu-works-s2r/build-native-clang
+    Start 1: dot_product_correctness
+1/4 Test #1: dot_product_correctness ..........   Passed    0.04 sec
+    Start 2: correctness_without_avx2
+2/4 Test #2: correctness_without_avx2 .........   Passed    0.03 sec
+    Start 3: benchmark_smoke
+3/4 Test #3: benchmark_smoke ..................   Passed    0.18 sec
+    Start 4: benchmark_without_avx2
+4/4 Test #4: benchmark_without_avx2 ...........   Passed    0.15 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.41 sec
+clang++-21: warning: overriding '-ffast-math' option with '-ffp-contract=off' [-Woverriding-option]
+== config: avx2 / gcc ==
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:6:31: optimized: loop vectorized using 32 byte vectors
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:6:31: optimized: loop vectorized using 16 byte vectors
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: vectorized 1 loops in function.
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Analysis failed with vector mode V8SF
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** The result for vector mode V32QI would be the same
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Re-trying analysis with vector mode V16QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Analysis failed with vector mode V16QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Re-trying analysis with vector mode V8QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Analysis failed with vector mode V8QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Re-trying analysis with vector mode V4QI
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:4:7: note: ***** Analysis failed with vector mode V4QI
+ok: scalar: empty input
+ok: scalar: single element
+ok: scalar: mixed signs
+ok: scalar: same input buffer
+ok: scalar: offset and prefix
+ok: scalar: cancellation
+ok: scalar: guaranteed unaligned vector loads
+ok: scalar n=1
+ok: scalar n=7
+ok: scalar n=8
+ok: scalar n=9
+ok: scalar n=31
+ok: scalar n=256
+ok: scalar n=1024
+ok: scalar n=4097
+ok: scalar: all tails n=0..65
+ok: scalar: offset tails n=0..65
+ok: scalar: well-conditioned large n (no cancellation)
+ok: compiler_optimized: empty input
+ok: compiler_optimized: single element
+ok: compiler_optimized: mixed signs
+ok: compiler_optimized: same input buffer
+ok: compiler_optimized: offset and prefix
+ok: compiler_optimized: cancellation
+ok: compiler_optimized: guaranteed unaligned vector loads
+ok: compiler_optimized n=1
+ok: compiler_optimized n=7
+ok: compiler_optimized n=8
+ok: compiler_optimized n=9
+ok: compiler_optimized n=31
+ok: compiler_optimized n=256
+ok: compiler_optimized n=1024
+ok: compiler_optimized n=4097
+ok: compiler_optimized: all tails n=0..65
+ok: compiler_optimized: offset tails n=0..65
+ok: compiler_optimized: well-conditioned large n (no cancellation)
+ok: compiler_reassociated: empty input
+ok: compiler_reassociated: single element
+ok: compiler_reassociated: mixed signs
+ok: compiler_reassociated: same input buffer
+ok: compiler_reassociated: offset and prefix
+ok: compiler_reassociated: cancellation
+ok: compiler_reassociated: guaranteed unaligned vector loads
+ok: compiler_reassociated n=1
+ok: compiler_reassociated n=7
+ok: compiler_reassociated n=8
+ok: compiler_reassociated n=9
+ok: compiler_reassociated n=31
+ok: compiler_reassociated n=256
+ok: compiler_reassociated n=1024
+ok: compiler_reassociated n=4097
+ok: compiler_reassociated: all tails n=0..65
+ok: compiler_reassociated: offset tails n=0..65
+ok: compiler_reassociated: well-conditioned large n (no cancellation)
+ok: manual_avx2: empty input
+ok: manual_avx2: single element
+ok: manual_avx2: mixed signs
+ok: manual_avx2: same input buffer
+ok: manual_avx2: offset and prefix
+ok: manual_avx2: cancellation
+ok: manual_avx2: guaranteed unaligned vector loads
+ok: manual_avx2 n=1
+ok: manual_avx2 n=7
+ok: manual_avx2 n=8
+ok: manual_avx2 n=9
+ok: manual_avx2 n=31
+ok: manual_avx2 n=256
+ok: manual_avx2 n=1024
+ok: manual_avx2 n=4097
+ok: manual_avx2: all tails n=0..65
+ok: manual_avx2: offset tails n=0..65
+ok: manual_avx2: well-conditioned large n (no cancellation)
+72 checks passed.
+Test project /home/ubuntu/gpu-works-s2r/build-avx2-gcc
+    Start 1: dot_product_correctness
+1/4 Test #1: dot_product_correctness ..........   Passed    0.04 sec
+    Start 2: correctness_without_avx2
+2/4 Test #2: correctness_without_avx2 .........   Passed    0.03 sec
+    Start 3: benchmark_smoke
+3/4 Test #3: benchmark_smoke ..................   Passed    0.19 sec
+    Start 4: benchmark_without_avx2
+4/4 Test #4: benchmark_without_avx2 ...........   Passed    0.15 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.42 sec
+== config: avx2 / clang ==
+clang++-21: warning: overriding '-ffast-math' option with '-ffp-contract=off' [-Woverriding-option]
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:7:13: remark: loop not vectorized: cannot prove it is safe to reorder floating-point operations; allow reordering by specifying '#pragma clang loop vectorize(enable)' before the loop or by providing the compiler option '-ffast-math' [-Rpass-analysis=loop-vectorize]
+    7 |         sum += a[i] * b[i];
+      |             ^
+/home/ubuntu/gpu-works-s2r/src/dot_product_optimized.cpp:6:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+    6 |     for (std::size_t i = 0; i < n; ++i) {
+      |     ^
+ok: scalar: empty input
+ok: scalar: single element
+ok: scalar: mixed signs
+ok: scalar: same input buffer
+ok: scalar: offset and prefix
+ok: scalar: cancellation
+ok: scalar: guaranteed unaligned vector loads
+ok: scalar n=1
+ok: scalar n=7
+ok: scalar n=8
+ok: scalar n=9
+ok: scalar n=31
+ok: scalar n=256
+ok: scalar n=1024
+ok: scalar n=4097
+ok: scalar: all tails n=0..65
+ok: scalar: offset tails n=0..65
+ok: scalar: well-conditioned large n (no cancellation)
+ok: compiler_optimized: empty input
+ok: compiler_optimized: single element
+ok: compiler_optimized: mixed signs
+ok: compiler_optimized: same input buffer
+ok: compiler_optimized: offset and prefix
+ok: compiler_optimized: cancellation
+ok: compiler_optimized: guaranteed unaligned vector loads
+ok: compiler_optimized n=1
+ok: compiler_optimized n=7
+ok: compiler_optimized n=8
+ok: compiler_optimized n=9
+ok: compiler_optimized n=31
+ok: compiler_optimized n=256
+ok: compiler_optimized n=1024
+ok: compiler_optimized n=4097
+ok: compiler_optimized: all tails n=0..65
+ok: compiler_optimized: offset tails n=0..65
+ok: compiler_optimized: well-conditioned large n (no cancellation)
+ok: compiler_reassociated: empty input
+ok: compiler_reassociated: single element
+ok: compiler_reassociated: mixed signs
+ok: compiler_reassociated: same input buffer
+ok: compiler_reassociated: offset and prefix
+ok: compiler_reassociated: cancellation
+ok: compiler_reassociated: guaranteed unaligned vector loads
+ok: compiler_reassociated n=1
+ok: compiler_reassociated n=7
+ok: compiler_reassociated n=8
+ok: compiler_reassociated n=9
+ok: compiler_reassociated n=31
+ok: compiler_reassociated n=256
+ok: compiler_reassociated n=1024
+ok: compiler_reassociated n=4097
+ok: compiler_reassociated: all tails n=0..65
+ok: compiler_reassociated: offset tails n=0..65
+ok: compiler_reassociated: well-conditioned large n (no cancellation)
+ok: manual_avx2: empty input
+ok: manual_avx2: single element
+ok: manual_avx2: mixed signs
+ok: manual_avx2: same input buffer
+ok: manual_avx2: offset and prefix
+ok: manual_avx2: cancellation
+ok: manual_avx2: guaranteed unaligned vector loads
+ok: manual_avx2 n=1
+ok: manual_avx2 n=7
+ok: manual_avx2 n=8
+ok: manual_avx2 n=9
+ok: manual_avx2 n=31
+ok: manual_avx2 n=256
+ok: manual_avx2 n=1024
+ok: manual_avx2 n=4097
+ok: manual_avx2: all tails n=0..65
+ok: manual_avx2: offset tails n=0..65
+ok: manual_avx2: well-conditioned large n (no cancellation)
+72 checks passed.
+Test project /home/ubuntu/gpu-works-s2r/build-avx2-clang
+    Start 1: dot_product_correctness
+1/4 Test #1: dot_product_correctness ..........   Passed    0.04 sec
+    Start 2: correctness_without_avx2
+2/4 Test #2: correctness_without_avx2 .........   Passed    0.03 sec
+    Start 3: benchmark_smoke
+3/4 Test #3: benchmark_smoke ..................   Passed    0.18 sec
+    Start 4: benchmark_without_avx2
+4/4 Test #4: benchmark_without_avx2 ...........   Passed    0.15 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.41 sec
+clang++-21: warning: overriding '-ffast-math' option with '-ffp-contract=off' [-Woverriding-option]
+SESSION_DONE
+total 188
+drwxrwxr-x 6 ubuntu ubuntu  4096 Sep  8 17:51 .
+drwxr-x--- 7 ubuntu ubuntu  4096 Sep  8 17:51 ..
+drwxrwxr-x 2 ubuntu ubuntu  4096 Sep  8 17:51 asm-avx2-clang
+drwxrwxr-x 2 ubuntu ubuntu  4096 Sep  8 17:51 asm-avx2-gcc
+drwxrwxr-x 2 ubuntu ubuntu  4096 Sep  8 17:51 asm-native-clang
+drwxrwxr-x 2 ubuntu ubuntu  4096 Sep  8 17:51 asm-native-gcc
+-rw-rw-r-- 1 ubuntu ubuntu 16927 Sep  8 17:51 bench-avx2-clang-run1.csv
+-rw-rw-r-- 1 ubuntu ubuntu 16905 Sep  8 17:51 bench-avx2-clang-run2.csv
+-rw-rw-r-- 1 ubuntu ubuntu 16895 Sep  8 17:51 bench-avx2-gcc-run1.csv
+-rw-rw-r-- 1 ubuntu ubuntu 16893 Sep  8 17:51 bench-avx2-gcc-run2.csv
+-rw-rw-r-- 1 ubuntu ubuntu 16914 Sep  8 17:51 bench-native-clang-run1.csv
+-rw-rw-r-- 1 ubuntu ubuntu 16924 Sep  8 17:51 bench-native-clang-run2.csv
+-rw-rw-r-- 1 ubuntu ubuntu 16892 Sep  8 17:51 bench-native-gcc-run1.csv
+-rw-rw-r-- 1 ubuntu ubuntu 16912 Sep  8 17:51 bench-native-gcc-run2.csv
+-rw-rw-r-- 1 ubuntu ubuntu   561 Sep  8 17:51 environment.txt
