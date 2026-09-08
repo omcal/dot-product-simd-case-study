@@ -3,7 +3,7 @@
 
 Usage:
   python3 tools/plot_results.py
-  python3 tools/plot_results.py --input results/results.csv \
+  python3 tools/plot_results.py --input results/results-2026-09-08-s2-native-gcc-pooled.csv \
       --output results/charts/ns_per_call.png
 
 Only "measurement" rows are used (smoke rows are skipped). The same script
@@ -41,7 +41,7 @@ def load_series(path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input", default="results/results.csv")
+    parser.add_argument("--input", default="results/results-2026-09-08-s2-native-gcc-pooled.csv")
     parser.add_argument("--output", default="results/charts/ns_per_call.png")
     args = parser.parse_args()
 
