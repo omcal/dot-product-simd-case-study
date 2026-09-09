@@ -49,6 +49,14 @@ python3 tools/plot_results.py --input results/results-2026-09-08-s2-native-gcc-p
 python3 tools/table_numbers.py
 ```
 
+## CI
+
+A GitHub Actions workflow ([`.github/workflows/ci.yml`](.github/workflows/ci.yml))
+builds and runs the tests on Ubuntu (GCC and Clang) and macOS (Clang) on every
+push and pull request:
+
+[![CI](https://github.com/omcal/dot-product-simd-case-study/actions/workflows/ci.yml/badge.svg)](https://github.com/omcal/dot-product-simd-case-study/actions/workflows/ci.yml)
+
 ## License
 
 MIT. See `LICENSE`.
