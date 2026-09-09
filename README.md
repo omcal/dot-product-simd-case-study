@@ -57,6 +57,14 @@ push and pull request:
 
 [![CI](https://github.com/omcal/dot-product-simd-case-study/actions/workflows/ci.yml/badge.svg)](https://github.com/omcal/dot-product-simd-case-study/actions/workflows/ci.yml)
 
+### Adding a secret
+
+This workflow uses no secrets. If you later add a step that needs an API token
+or other credential, store it in GitHub under **Settings → Secrets and
+variables → Actions → New repository secret**, then reference it in the
+workflow as `${{ secrets.NAME }}`. Secrets are never committed to the
+repository.
+
 ## License
 
 MIT. See `LICENSE`.
